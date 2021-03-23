@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="SAS" />
+
+    <title>SAS - About</title>
+    <meta name="google-signin-client_id" content="79689152656-ltqrsvvfq23e7tbve8j3gjsv0fdl4ajs.apps.googleusercontent.com"/>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta
+      name="description"
+      content="The website for the Strength Agility Speed (SAS) gym at Upper Canada College."
+    />
+
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script defer src="js/fontawesome-all.min.js"></script>
+    <style>
+      body {
+        background-image: url("img/back1.png");
+        background-repeat: no-repeat;
+      }
+    </style>
+    <link rel="shortcut icon" href="img/dumbbell.ico"/>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="https://www.ucc.on.ca/"
+        ><img class="nav-image" src="img/uccsmall.png" alt="UCC Logo"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">About</a>
+          </li>
+          <li class="nav-item logged-in" style="display: none;">
+            <a class="nav-link" href="profile/index.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="leaderboard/index.html">Leaderboard</a>
+          </li>
+          <li class="nav-item admin-link" style="display: none;">
+            <a class="nav-link" href="admin/index.html">Admin</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav float-lg-right">
+          <li class="nav-item">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          </li>
+          <li class="nav-item">
+            <p>. . . . </p>
+          </li>
+        </ul>
+        <ul class="navbar-nav float-lg-right">
+          <li class="nav-item mr-2">
+            <a
+              class="btn btn-outline-danger"
+              href="index.html"
+              data-proofer-ignore
+              onclick="signOut()"
+              >Log Out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" color="red">
+      <div class="alert bg-dark text-center fade show" role="alert">
+        <button type="button" class="close" data-bs-dismiss="alert">
+          &times;
+        </button>
+        <!-- Makes the banner closeable -->
+        Add your personal records on the <a href="profile/index.html"><b>Profile</b></a> page!
+      </div>
+    </div>
+
+
+      <!-- <div id="content123"></div> -->
+
+
+      <div class="container">
+        <div class="text-center text-md-left">
+          <h2>About the</h2>
+          <h1>SAS</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card card-body mt-3 mx-3">
+        <div class="row">
+          <div class="col-sm-3">
+            <img class="img-fluid" src="img/ucc.png" alt="UCC Logo" />
+          </div>
+          <div class="col-sm-9">
+            <h4>What's the SAS?</h4>
+            <p>
+              The Strength Agility Speed (SAS) workout facility operates within
+              Upper Canada College. Due to the fact that it is a <i>school</i> gym, 
+              <b>you will not be able to access the Profile page and add records
+              unless you are using a UCC email.</b> Of course, you may still access
+              the Leaderboard page.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAIO5dryUtLFx0iksp2bxAMHI-0xqTmuE8",
+        authDomain: "iaserver.firebaseapp.com",
+        databaseURL: "https://iaserver.firebaseio.com",
+        projectId: "iaserver",
+        appId: "1:79689152656:web:56190019ec08a113d08015",
+        measurementId: "G-QSWNL5KZWM"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      
+      //make auth and firestore references
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/auth.js"></script>
+  </body>
+</html>

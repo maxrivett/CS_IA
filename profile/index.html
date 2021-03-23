@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="SAS" />
+
+    <title>SAS - Profile</title>
+    <meta name="google-signin-client_id" content="79689152656-ltqrsvvfq23e7tbve8j3gjsv0fdl4ajs.apps.googleusercontent.com"/>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta
+      name="description"
+      content="The website for the Strength Agility Speed (SAS) gym at Upper Canada College."
+    />
+    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-132383226-1");
+    </script>
+    <style>
+      body {
+        background-image: url("../img/back1.png");
+        background-repeat: no-repeat;
+      }
+    </style>
+    <link rel="shortcut icon" href="../img/dumbbell.ico"/>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="https://www.ucc.on.ca/"
+        ><img class="nav-image" src="../img/uccsmall.png" alt="UCC Logo"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">About</a>
+          </li>
+          <li class="nav-item active logged-in">
+            <a class="nav-link" href="../profile/index.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../leaderboard/index.html">Leaderboard</a>
+          </li>
+          <li class="nav-item admin-link" style="display: none;">
+            <a class="nav-link" href="../admin/index.html">Admin</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav float-lg-right">
+          <li class="nav-item">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          </li>
+          <li class="nav-item">
+            <p>. . . . </p>
+          </li>
+        </ul>
+        <ul class="navbar-nav float-lg-right">
+          <li class="nav-item mr-2">
+            <button
+              class="btn btn-outline-danger"
+              href="index.html"
+              data-proofer-ignore
+              onclick="signOut()"
+              >Log Out</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+        
+    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+
+
+    <div class="container">
+        <div class="text-center text-md-left">
+          <h1>Profile</h1>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="card card-body mt-3 mx-3">
+        <div class="row">
+          <div class="col-sm-3">
+            <!-- Google Profile Image will be appended here using the onSignIn() function -->
+            <div id="img123"></div>
+          </div>
+          <div class="col-sm-9">
+            <h4><div id="name123">Name Loading...</div></h4>
+            <p>
+                <div id="email123">Email Loading...</div>
+                
+            </p>
+            <p><div id="year123">Year Unknown...</div>
+                <br>
+                <form id="add-year">
+                  <div id="year" class="input-field">
+                    <input type="text" id="title" required>
+                    <label for="title">Add/Change Year Level</label>
+                  </div>
+                  <button class="btn">Enter</button>
+                </form>
+            
+            </p>
+            
+            <h4>Records:</h4>
+            <p>
+                <b>Squat:</b> 
+                <div id="squat123">No Record Yet...</div>
+                
+                Add new record?
+              <form id="add-squat">
+                <div id="squat" class="input-field">
+                  <input type="text" id="title" required>
+                  <label for="title">Weight (lbs)</label>
+                </div>
+                <button class="btn">Add</button>
+              </form>
+            </p>
+            
+            <p>
+                <b>Deadlift:</b>
+                <div id="deadlift123">No Record Yet...</div>
+                Add new record?
+                <form id="add-deadlift">
+                  <div id="deadlift" class="input-field">
+                    <input type="text" id="title" required>
+                    <label for="title">Weight (lbs)</label>
+                  </div>
+                  <button class="btn">Add</button>
+                </form>
+            </p>
+            
+            <p>
+              <b>Bench Press:</b>
+              <div id="bench123">No Record Yet...</div>
+              Add new record?
+              <form id="add-bench">
+                <div id="bench" class="input-field">
+                  <input type="text" id="title" required>
+                  <label for="title">Weight (lbs)</label>
+                </div>
+                <button class="btn">Add</button>
+              </form>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+      <script>
+        // Your web app's Firebase configuration
+       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyAIO5dryUtLFx0iksp2bxAMHI-0xqTmuE8",
+          authDomain: "iaserver.firebaseapp.com",
+          databaseURL: "https://iaserver.firebaseio.com",
+          projectId: "iaserver",
+          appId: "1:79689152656:web:56190019ec08a113d08015",
+          measurementId: "G-QSWNL5KZWM"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        //make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+  
+        db.settings({ timestampsInSnapshots: true });
+      </script>
+
+    <script src="../scripts/index.js"></script>
+    <script src="../scripts/auth.js"></script>
+  </body>
+</html>
